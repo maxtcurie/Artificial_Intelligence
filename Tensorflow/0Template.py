@@ -42,6 +42,9 @@ history = model.fit(x_train,y_train,epochs=500,\
                  validation_data=(x_val, y_val)
                  )
 
+model.save('./linear_regression.h5')
+print('Model Saved!')
+
 #check the prediction
 test_set=[0.5]
 test_set=np.array(test_set,dtype=float)

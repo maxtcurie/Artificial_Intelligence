@@ -59,3 +59,6 @@ plt.ylabel('loss')
 plt.yscale('log')
 plt.grid()
 plt.show()
+
+model.save('./linear_regression.h5')
+print('Model Saved!')

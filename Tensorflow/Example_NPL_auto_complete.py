@@ -100,8 +100,15 @@ adam = Adam(lr=0.01)
 model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
 #earlystop = EarlyStopping(monitor='val_loss', min_delta=0, patience=5, verbose=0, mode='auto')
 history = model.fit(xs, ys, epochs=100, verbose=1)
-#print model.summary()
-print(model)
+
+#save the trained model
+try: 
+    os.mkdir('tmp')
+except:
+    pass
+model.save('./tmp/NPL_auto_complete.h5')
+print('Model Saved!')
+
 
 import matplotlib.pyplot as plt
 
@@ -120,7 +127,7 @@ next_words = 100
 for _ in range(next_words):
 	token_list = tokenizer.texts_to_sequences([seed_text])[0]
 	token_list = pad_sequences([token_list], maxlen=max_sequence_len-1, padding='pre')
-	predicted = model.predict_classes(token_list, verbose=0)
+	predicted = model.predict(token_list)
 	output_word = ""
 	for word, index in tokenizer.word_index.items():
 		if index == predicted:

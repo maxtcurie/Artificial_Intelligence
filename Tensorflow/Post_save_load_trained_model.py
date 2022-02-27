@@ -4,8 +4,15 @@
 
 
 #save the trained model
-model.save('gfgModel.h5')
+import os 
+path='tmp'
+try: 
+    os.mkdir(path)
+except:
+    pass
+model.save('./tmp/linear_regression.h5')
 print('Model Saved!')
- 
+
+import tensorflow as tf
 #load model
-savedModel=load_model('gfgModel.h5')
+savedModel=tf.keras.models.load_model('gfgModel.h5')

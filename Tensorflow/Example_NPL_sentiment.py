@@ -29,7 +29,10 @@ num_epochs = 10
 import tensorflow as tf
 print(tf.__version__)
 
-
+try: 
+    os.mkdir('tmp')
+except:
+    pass
 
 import tensorflow_datasets as tfds 
 # !pip install tensorflow-datasets
