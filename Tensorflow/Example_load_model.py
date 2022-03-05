@@ -4,7 +4,7 @@ Model=tf.keras.models.load_model('./linear_regression.h5')
 
 Model.summary()
 
-print(Model.__dict__)
+#print(Model.__dict__)
 
 import numpy as np 
 

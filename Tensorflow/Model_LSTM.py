@@ -1,6 +1,5 @@
 import tensorflow as tf 
 
-#linear regression
 def LSTM():
 	# Model Definition with LSTM
 	model = tf.keras.Sequential([

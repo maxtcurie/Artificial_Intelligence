@@ -124,7 +124,9 @@ def create_model():
 
   return model
 
-
+print(dir(validation_generator))
+print(validation_generator.labels)
+input()
 # Get the untrained model
 model = create_model()
 callbacks = myCallback()
