@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-test=False
+test=True
 
 def plot_dense_NN(lines,dots):
     plt.clf()
@@ -12,7 +12,7 @@ def plot_dense_NN(lines,dots):
         plt.plot(line[0],line[1],color='blue',alpha=line[2])
     for dot in dots:
         plt.scatter(dot[0],dot[1],color='red',s=dot[2]*500)
-    plt.save
+    #plt.save
     plt.show()
 
 def weights_to_lines_and_dots(weights):
@@ -84,5 +84,5 @@ if test==True:
     #get from: https://stackoverflow.com/questions/52702220/access-the-weight-matrix-in-tensorflow-in-order-to-make-apply-changes-to-it-in-n
     weights = model.get_weights()
     first_weight=first_weight(weights)
-    lines,dots,first_weight=weights_to_lines_and_dots(weights)
+    lines,dots=weights_to_lines_and_dots(weights)
     plot_dense_NN(lines,dots)
