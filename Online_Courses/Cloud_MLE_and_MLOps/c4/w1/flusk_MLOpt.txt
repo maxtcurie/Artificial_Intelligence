@@ -1,0 +1,78 @@
+Flask Machine Learning Microservice
+Instructions
+Let's build a Flask Microservice that loads a serialized model from disk, and then uses it to serve out predictions. Building ML Microservices are a key component to doing Machine Learning Engineering.  This exercise helps master this concept.
+
+Note: We recommend that you open this notebook in the most updated version Google Chrome for the most consistent experience.
+
+Part 1: Run Flask and test it out
+
+Open a terminal in Visual Studio Code.
+
+cd into the projects directory:  cd /home/coder/project
+
+install virtualenv:  python3 -m pip install virtualenv
+
+create a virtualenv: /home/coder/.local/bin/virtualenv VENV
+
+source the virtualenv (activate it):  source VENV/bin/activate
+
+cd into flask project:  cd /home/coder/project/flask-ml-azure-serverless
+
+install software:  make install
+
+run flask:  python app.py
+
+You should see output similar to the following
+
+(VENV) coder@6780dcab379f:~/project/flask-ml-azure-serverless$ python app.py 
+/home/coder/project/VENV/lib/python3.8/site-packages/sklearn/externals/joblib/__init__.py:15: FutureWarning: sklearn.externals.joblib is deprecated in 0.21 and will be removed in 0.23. Please import this functionality directly from joblib, which can be installed with: pip install joblib. If this warning is raised when loading pickled models, you may need to re-serialize those models with scikit-learn 0.21+.
+  warnings.warn(msg, category=FutureWarning)
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+
+Part 2: Make a Machine Learning prediction
+
+Open a second terminal in Visual Studio Code.
+
+cd into /home/coder/project/flask-ml-azure-serverless
+
+Run ./make_predict.sh
+
+The bash script makes a prediction to the Flask application and the output looks similar to the following.
+
+coder@6780dcab379f:~/project/flask-ml-azure-serverless$ ./make_predict.sh 
+Port: 5000
+{  
+   "CHAS":{  
+      "0":0
+   },
+   "RM":{  
+      "0":6.575
+   },
+   "TAX":{  
+      "0":296.0
+   },
+   "PTRATIO":{  
+      "0":15.3
+   },
+   "B":{  
+      "0":396.9
+   },
+   "LSTAT":{  
+      "0":4.98
+   }
+}
+
+Part 3:  Experiment with the Machine Learning Microservice
+
+Now that you have the Microservice serving out predictions, experiment with it by changing the payload of the ./make_predict.sh script by changing a value, say 15.4 for the PTRATIO variable.  What happens?
+
+Go to the app.py file and add more logging to the def predict() function on line 28.  What happens?
+
+Wrap up
+
+You learned how to run a Machine Learning Microservice and change it. In a later lab, you will learn how to export the serialized model.
