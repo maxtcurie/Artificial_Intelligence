@@ -1,0 +1,17 @@
+(pep 8) Python code standard
+https://peps.python.org/pep-0008/
+
+Handloop (big data handler)
+https://opensource.com/life/14/8/intro-apache-hadoop-big-data
+
+attention in ML
+https://en.wikipedia.org/wiki/Attention_(machine_learning)#:~:text=In%20artificial%20neural%20networks%2C%20attention,important%2C%20parts%20of%20the%20data
+
+ML Vitualization
+https://sonraianalytics.com/what-is-tsne/#:~:text=T%2Ddistributed%20Stochastic%20Neighbourhood%20Embedding,in%202%20or%203%20dimensions.
+
+Deeplearning book
+https://www.deeplearningbook.org/
+
+Hyperparameter tunning
+https://en.wikipedia.org/wiki/Neural_architecture_search
