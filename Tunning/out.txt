@@ -1,0 +1,84 @@
+Results summary
+Results in dir\x
+Showing 10000000000 best trials
+<keras_tuner.engine.objective.Objective object at 0x000001F3FB5E8E80>
+Trial summary
+Hyperparameters:
+layer_1: 101
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.8769166469573975
+Trial summary
+Hyperparameters:
+layer_1: 901
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.8017500042915344
+Trial summary
+Hyperparameters:
+layer_1: 701
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.7891666889190674
+Trial summary
+Hyperparameters:
+layer_1: 501
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.7878333330154419
+Trial summary
+Hyperparameters:
+layer_1: 201
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.6970833539962769
+Trial summary
+Hyperparameters:
+layer_1: 801
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.6954166889190674
+Trial summary
+Hyperparameters:
+layer_1: 601
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.6910833120346069
+Trial summary
+Hyperparameters:
+layer_1: 401
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.6074166893959045
+Trial summary
+Hyperparameters:
+layer_1: 301
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.6050833463668823
+Trial summary
+Hyperparameters:
+layer_1: 1
+tuner/epochs: 2
+tuner/initial_epoch: 0
+tuner/bracket: 2
+tuner/round: 0
+Score: 0.2955000102519989
