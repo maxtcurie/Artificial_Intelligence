@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #function to fit
-x=np.arange(0,10) #input
+x=np.arange(1,11) #input x=[1,2,...10]
 y=2.*x	#output
 
 #learning rate
@@ -50,13 +50,22 @@ while J>J_CRIT:
 
 	w_list.append(w)
 	b_list.append(b)
-
+print('w_list: ')
 print(w_list)
+print('b_list: ')
 print(b_list)
 
+x=np.arange(0,11,1) #include 0 to plotting
+
 plt.clf()
-r=0.9
 for (w,b) in zip(w_list,b_list):
-	r=r*0.5
-	plt.plot(x,w*x+b,color='blue',alpha=1-r)
+	plt.plot(x,w*x+b,color='blue',alpha=0.3)
+plt.plot(x,w_list[-1]*x+b_list[-1],color='blue',label='final fit')
+plt.scatter(x,2*x,color='red',label='data')
+plt.grid(alpha=0.3)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.xlim(0,10)
+plt.ylim(0,20)
+plt.legend()
 plt.show()
