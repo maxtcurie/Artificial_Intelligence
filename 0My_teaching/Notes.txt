@@ -1,0 +1,6 @@
+Importance of Loss Function in Machine Learning
+https://towardsdatascience.com/importance-of-loss-function-in-machine-learning-eddaaec69519
+
+
+What is the derivative of the Mean Squared Error?
+https://sebastianraschka.com/faq/docs/mse-derivative.html#:~:text=The%20partial%20derivative%20of%20the,%E2%88%82wjoi.
