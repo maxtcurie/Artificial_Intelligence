@@ -3,8 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-test=True
-
 def plot_dense_NN(lines,dots):
     plt.clf()
     for line in lines:
@@ -67,7 +65,7 @@ def first_weight(weights):
 #     linewidth=2, markersize=12)
 
 
-if test==True:
+if __name__ == "__main__":
     lines=[	#[x1,x2], [y1,y2], weight
     		[[0,1],[0,0],1]\
     		]
