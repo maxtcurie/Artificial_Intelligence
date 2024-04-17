@@ -4,6 +4,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
+#examples: 
+
+
 # Generate a combined sine and cosine wave
 x = np.linspace(0, 50, 1000) # 1000 points from 0 to 50
 y = np.sin(x) * np.cos(x * 0.5) + np.sin(x * 0.3)

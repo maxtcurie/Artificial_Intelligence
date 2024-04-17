@@ -303,3 +303,12 @@ if __name__ == '__main__':
     ax[1].legend()
     plt.show()
 
+    plt.clf()
+    fig, ax=plt.subplots(nrows=1,ncols=2,sharex=True) 
+
+    ax[0].plot(predictions[:,0],alpha=1, label='predictions')
+    ax[1].plot(y_test[test_index,:,0],alpha=1,label='true')
+
+    ax[0].legend()
+    ax[1].legend()
+    plt.show()
