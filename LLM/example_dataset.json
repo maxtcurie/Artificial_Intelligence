@@ -1,0 +1,11 @@
+{
+    "train": [
+        {"text": "Hello, how are you?"},
+        {"text": "I am a large language model."},
+        {"text": "Fine-tuning helps improve performance."}
+    ],
+    "validation": [
+        {"text": "This is a validation example."},
+        {"text": "Language models can be fine-tuned for specific tasks."}
+    ]
+}
