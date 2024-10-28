@@ -117,8 +117,8 @@ class TransformerWithDictInput(nn.Module):
         # Refine using residual block
         x = self.residual_block(last_time_step)
 
-        # Final classification output
-        return self.classifier(x)  # Shape: (n_sample, output_dim)
+        # Final classification output (logits for binary classification)
+        return self.classifier(x).squeeze(-1)  # Shape: (n_sample,)
 
 
 # Helper function to determine input and output dimensions
@@ -127,11 +127,6 @@ def get_data_dim(input_data):
     seq_len = input_data[list(input_data.keys())[0]].shape[1]
     return input_dims, seq_len
 
-
-# Mock data for training
-batch_size = 16
-seq_len = 20
-output_dim = 2  # Number of classes for classification
 
 
 def generate_nonlinear_data(batch_size, seq_len, output_dim, input_dim=[16, 12]):
@@ -175,47 +170,52 @@ def generate_nonlinear_data(batch_size, seq_len, output_dim, input_dim=[16, 12])
     }
     return input_data, target_labels
 
+if __name__ == "__main__":
+    # Mock data for training
+    batch_size = 16
+    seq_len = 20
+    output_dim = 2  # Number of classes for classification
 
-input_data, target_labels = generate_nonlinear_data(batch_size, seq_len, output_dim)
+    input_data, target_labels = generate_nonlinear_data(batch_size, seq_len, output_dim)
 
-input_dims, seq_len = get_data_dim(input_data)
-
-
-encoder_types = {
-    "sensor_1": "CNN", 
-    "sensor_2": "MLP"
-}
-
-# Instantiate the model
-model = TransformerWithDictInput(input_dims, output_dim, seq_len, encoder_types, n_latent=128)
-
-# Define loss function and optimizer
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
-
-# Training loop
-n_epochs = 100
-for epoch in range(n_epochs):
-    model.train()
-    optimizer.zero_grad()
-
-    # Forward pass
-    outputs = model(input_data)
-    
-    # Compute loss
-    loss = criterion(outputs, target_labels)
-    loss.backward()
-    optimizer.step()
-
-    print(f"Epoch [{epoch+1}/{n_epochs}], Loss: {loss.item()}")
+    input_dims, seq_len = get_data_dim(input_data)
 
 
-# Inference (mock example)
-model.eval()
-with torch.no_grad():
-    test_input_data = {
-        "sensor_1": torch.randn(batch_size, seq_len, 16),
-        "sensor_2": torch.randn(batch_size, seq_len, 12),
+    encoder_types = {
+        "sensor_1": "CNN", 
+        "sensor_2": "MLP"
     }
-    predictions = model(test_input_data)
-    print(f"Predictions shape: {predictions.shape}")
+
+    # Instantiate the model
+    model = TransformerWithDictInput(input_dims, output_dim, seq_len, encoder_types, n_latent=128)
+
+    # Define loss function and optimizer
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+    # Training loop
+    n_epochs = 10
+    for epoch in range(n_epochs):
+        model.train()
+        optimizer.zero_grad()
+
+        # Forward pass
+        outputs = model(input_data)
+        
+        # Compute loss
+        loss = criterion(outputs, target_labels)
+        loss.backward()
+        optimizer.step()
+
+        print(f"Epoch [{epoch+1}/{n_epochs}], Loss: {loss.item()}")
+
+
+    # Inference (mock example)
+    model.eval()
+    with torch.no_grad():
+        test_input_data = {
+            "sensor_1": torch.randn(batch_size, seq_len, 16),
+            "sensor_2": torch.randn(batch_size, seq_len, 12),
+        }
+        predictions = model(test_input_data)
+        print(f"Predictions shape: {predictions.shape}")
